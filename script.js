@@ -35,3 +35,5 @@ function operate(numOne, numTwo, operator){
             return "ERROR: No operator selected.";
     }
 }
+
+let = displayValue = [];
