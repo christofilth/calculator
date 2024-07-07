@@ -36,9 +36,15 @@ function operate(numOne, numTwo, operator){
     }
 }
 
-let = displayValue = [];
+let = displayValue = ["0"];
+document.getElementById("screen").innerText = displayValue.join("");
+
 
 const button1 = document.getElementById("btn1");
 button1.addEventListener("click", () => {
+    if (displayValue.join("") === "0") {
+        displayValue = [];
+    }
     displayValue.push("1");
+    document.getElementById("screen").innerText = displayValue.join("");
 });
