@@ -48,3 +48,84 @@ button1.addEventListener("click", () => {
     displayValue.push("1");
     document.getElementById("screen").innerText = displayValue.join("");
 });
+
+const button2 = document.getElementById("btn2");
+button2.addEventListener("click", () => {
+    if (displayValue.join("") === "0") {
+        displayValue = [];
+    }
+    displayValue.push("2");
+    document.getElementById("screen").innerText = displayValue.join("");
+});
+
+const button3 = document.getElementById("btn3");
+button3.addEventListener("click", () => {
+    if (displayValue.join("") === "0") {
+        displayValue = [];
+    }
+    displayValue.push("3");
+    document.getElementById("screen").innerText = displayValue.join("");
+});
+
+const button4 = document.getElementById("btn4");
+button4.addEventListener("click", () => {
+    if (displayValue.join("") === "0") {
+        displayValue = [];
+    }
+    displayValue.push("4");
+    document.getElementById("screen").innerText = displayValue.join("");
+});
+
+const button5 = document.getElementById("btn5");
+button5.addEventListener("click", () => {
+    if (displayValue.join("") === "0") {
+        displayValue = [];
+    }
+    displayValue.push("5");
+    document.getElementById("screen").innerText = displayValue.join("");
+});
+
+const button6 = document.getElementById("btn6");
+button6.addEventListener("click", () => {
+    if (displayValue.join("") === "0") {
+        displayValue = [];
+    }
+    displayValue.push("6");
+    document.getElementById("screen").innerText = displayValue.join("");
+});
+
+const button7 = document.getElementById("btn7");
+button7.addEventListener("click", () => {
+    if (displayValue.join("") === "0") {
+        displayValue = [];
+    }
+    displayValue.push("7");
+    document.getElementById("screen").innerText = displayValue.join("");
+});
+
+const button8 = document.getElementById("btn8");
+button8.addEventListener("click", () => {
+    if (displayValue.join("") === "0") {
+        displayValue = [];
+    }
+    displayValue.push("8");
+    document.getElementById("screen").innerText = displayValue.join("");
+});
+
+const button9 = document.getElementById("btn9");
+button9.addEventListener("click", () => {
+    if (displayValue.join("") === "0") {
+        displayValue = [];
+    }
+    displayValue.push("9");
+    document.getElementById("screen").innerText = displayValue.join("");
+});
+
+const button0 = document.getElementById("btn0");
+button0.addEventListener("click", () => {
+    if (displayValue.join("") === "0") {
+        displayValue = [];
+    }
+    displayValue.push("0");
+    document.getElementById("screen").innerText = displayValue.join("");
+});
