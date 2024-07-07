@@ -37,3 +37,8 @@ function operate(numOne, numTwo, operator){
 }
 
 let = displayValue = [];
+
+const button1 = document.getElementById("btn1");
+button1.addEventListener("click", () => {
+    displayValue.push("1");
+});
