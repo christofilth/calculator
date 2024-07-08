@@ -24,7 +24,7 @@ let operator = "";
 function operate(numOne, numTwo, operator){
     switch (operator){
         case 'add':
-            return add(numOne, numTwo);
+            return Math.round(add(numOne, numTwo) * 1e9) / 1e9;
         case 'subtract':
             return subtract(numOne, numTwo);
         case 'multiply':
@@ -134,6 +134,7 @@ const buttonAdd = document.getElementById("btn+");
 buttonAdd.addEventListener("click", () => {
     if (numOne !== "") {
         numTwo = displayValue.join("");
+        console.log("numOne is", numOne);
         console.log("numTwo is", numTwo);
         displayValue = [`${operate(parseFloat(numOne), parseFloat(numTwo), operator)}`];
         document.getElementById("screen").innerText = displayValue.join("");
@@ -142,8 +143,5 @@ buttonAdd.addEventListener("click", () => {
     }
     numOne = displayValue.join("");
     operator = 'add';
-    displayValue = [];
-    console.log("numOne is", numOne);
-    console.log("operator is", operator);
-    console.log("displayValue is", displayValue);
+    displayValue = []; 
 });
