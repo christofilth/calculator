@@ -17,8 +17,8 @@ function divide(a, b){
     return a/b;
 }
 
-let numOne = 0;
-let numTwo = 0;
+let numOne = "";
+let numTwo = "";
 let operator = "";
 
 function operate(numOne, numTwo, operator){
@@ -36,7 +36,7 @@ function operate(numOne, numTwo, operator){
     }
 }
 
-let = displayValue = ["0"];
+let displayValue = ["0"];
 document.getElementById("screen").innerText = displayValue.join("");
 
 
@@ -128,4 +128,22 @@ button0.addEventListener("click", () => {
     }
     displayValue.push("0");
     document.getElementById("screen").innerText = displayValue.join("");
+});
+
+const buttonAdd = document.getElementById("btn+");
+buttonAdd.addEventListener("click", () => {
+    if (numOne !== "") {
+        numTwo = displayValue.join("");
+        console.log("numTwo is", numTwo);
+        displayValue = [`${operate(parseFloat(numOne), parseFloat(numTwo), operator)}`];
+        document.getElementById("screen").innerText = displayValue.join("");
+        numOne = displayValue[0];
+        numTwo = "";
+    }
+    numOne = displayValue.join("");
+    operator = 'add';
+    displayValue = [];
+    console.log("numOne is", numOne);
+    console.log("operator is", operator);
+    console.log("displayValue is", displayValue);
 });
