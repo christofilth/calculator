@@ -28,9 +28,9 @@ function operate(numOne, numTwo, operator){
         case 'subtract':
             return Math.round(subtract(numOne, numTwo)* 1e9) / 1e9;
         case 'multiply':
-            return multiply(numOne, numTwo);
+            return Math.round(multiply(numOne, numTwo)* 1e9) / 1e9;
         case 'divide':
-            return divide(numOne, numTwo);
+            return Math.round(divide(numOne, numTwo)* 1e9) / 1e9;
         default:
             return "ERROR: No operator selected.";
     }
@@ -159,5 +159,37 @@ buttonSubtract.addEventListener("click", () => {
     }
     numOne = displayValue.join("");
     operator = 'subtract';
+    displayValue = []; 
+});
+
+const buttonMultiply = document.getElementById("btn*");
+buttonMultiply.addEventListener("click", () => {
+    if (numOne !== "") {
+        numTwo = displayValue.join("");
+        console.log("numOne is", numOne);
+        console.log("numTwo is", numTwo);
+        displayValue = [`${operate(parseFloat(numOne), parseFloat(numTwo), operator)}`];
+        document.getElementById("screen").innerText = displayValue.join("");
+        numOne = displayValue[0];
+        numTwo = "";
+    }
+    numOne = displayValue.join("");
+    operator = 'multiply';
+    displayValue = []; 
+});
+
+const buttonDivide = document.getElementById("btn/");
+buttonDivide.addEventListener("click", () => {
+    if (numOne !== "") {
+        numTwo = displayValue.join("");
+        console.log("numOne is", numOne);
+        console.log("numTwo is", numTwo);
+        displayValue = [`${operate(parseFloat(numOne), parseFloat(numTwo), operator)}`];
+        document.getElementById("screen").innerText = displayValue.join("");
+        numOne = displayValue[0];
+        numTwo = "";
+    }
+    numOne = displayValue.join("");
+    operator = 'divide';
     displayValue = []; 
 });
