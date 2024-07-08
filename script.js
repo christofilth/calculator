@@ -26,7 +26,7 @@ function operate(numOne, numTwo, operator){
         case 'add':
             return Math.round(add(numOne, numTwo) * 1e9) / 1e9;
         case 'subtract':
-            return subtract(numOne, numTwo);
+            return Math.round(subtract(numOne, numTwo)* 1e9) / 1e9;
         case 'multiply':
             return multiply(numOne, numTwo);
         case 'divide':
@@ -143,5 +143,21 @@ buttonAdd.addEventListener("click", () => {
     }
     numOne = displayValue.join("");
     operator = 'add';
+    displayValue = []; 
+});
+
+const buttonSubtract = document.getElementById("btn-");
+buttonSubtract.addEventListener("click", () => {
+    if (numOne !== "") {
+        numTwo = displayValue.join("");
+        console.log("numOne is", numOne);
+        console.log("numTwo is", numTwo);
+        displayValue = [`${operate(parseFloat(numOne), parseFloat(numTwo), operator)}`];
+        document.getElementById("screen").innerText = displayValue.join("");
+        numOne = displayValue[0];
+        numTwo = "";
+    }
+    numOne = displayValue.join("");
+    operator = 'subtract';
     displayValue = []; 
 });
