@@ -30,7 +30,8 @@ function operate(numOne, numTwo, operator){
         case 'multiply':
             return Math.round(multiply(numOne, numTwo)* 1e9) / 1e9;
         case 'divide':
-            return Math.round(divide(numOne, numTwo)* 1e9) / 1e9;
+            const result = divide(numOne, numTwo);
+            return typeof result === "string" ? result : Math.round(divide(numOne, numTwo)* 1e9) / 1e9;
         default:
             return "ERROR: No operator selected.";
     }
@@ -231,5 +232,11 @@ buttonClear.addEventListener("click", () => {
     numTwo = "";
     operator = "";
     displayValue = ["0"];
+    document.getElementById("screen").innerText = displayValue.join("");
+});
+
+const buttonBackspace = document.getElementById("btnBack");
+buttonBackspace.addEventListener("click", () => {
+    displayValue.pop()
     document.getElementById("screen").innerText = displayValue.join("");
 });
