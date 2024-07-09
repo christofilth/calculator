@@ -132,64 +132,95 @@ button0.addEventListener("click", () => {
 
 const buttonAdd = document.getElementById("btn+");
 buttonAdd.addEventListener("click", () => {
-    if (numOne !== "") {
+    if (numOne === "") {
+        numOne = displayValue.join("");
+        operator = 'add';
+        displayValue = []; 
+    } else if (numOne !== "" && operator === ""){
+        operator = 'add';
+        displayValue = [];
+    } else {
+        operator = 'add';
         numTwo = displayValue.join("");
-        console.log("numOne is", numOne);
-        console.log("numTwo is", numTwo);
         displayValue = [`${operate(parseFloat(numOne), parseFloat(numTwo), operator)}`];
         document.getElementById("screen").innerText = displayValue.join("");
         numOne = displayValue[0];
         numTwo = "";
+        
     }
-    numOne = displayValue.join("");
-    operator = 'add';
-    displayValue = []; 
 });
 
 const buttonSubtract = document.getElementById("btn-");
 buttonSubtract.addEventListener("click", () => {
-    if (numOne !== "") {
+    if (numOne === "") {
+        numOne = displayValue.join("");
+        operator = 'subtract';
+        displayValue = []; 
+    } else if (numOne !== "" && operator === ""){
+        operator = 'subtract';
+        displayValue = [];
+    } else {
+        operator = 'subtract';
         numTwo = displayValue.join("");
-        console.log("numOne is", numOne);
-        console.log("numTwo is", numTwo);
         displayValue = [`${operate(parseFloat(numOne), parseFloat(numTwo), operator)}`];
         document.getElementById("screen").innerText = displayValue.join("");
         numOne = displayValue[0];
         numTwo = "";
+        displayValue = [];
     }
-    numOne = displayValue.join("");
-    operator = 'subtract';
-    displayValue = []; 
 });
 
 const buttonMultiply = document.getElementById("btn*");
 buttonMultiply.addEventListener("click", () => {
-    if (numOne !== "") {
+    if (numOne === "") {
+        numOne = displayValue.join("");
+        operator = 'multiply';
+        displayValue = []; 
+    } else if (numOne !== "" && operator === ""){
+        operator = 'multiply';
+        displayValue = [];
+    } else {
+        operator = 'multiply';
         numTwo = displayValue.join("");
-        console.log("numOne is", numOne);
-        console.log("numTwo is", numTwo);
         displayValue = [`${operate(parseFloat(numOne), parseFloat(numTwo), operator)}`];
         document.getElementById("screen").innerText = displayValue.join("");
         numOne = displayValue[0];
         numTwo = "";
+        displayValue = [];
     }
-    numOne = displayValue.join("");
-    operator = 'multiply';
-    displayValue = []; 
 });
 
 const buttonDivide = document.getElementById("btn/");
 buttonDivide.addEventListener("click", () => {
-    if (numOne !== "") {
+    if (numOne === "" && operator === "") {
+        numOne = displayValue.join("");
+        operator = 'divide';
+        displayValue = []; 
+    } else if (numOne !== "" && operator === ""){
+        operator = 'divide';
+        displayValue = [];
+    } else {
+        operator = 'divide';
         numTwo = displayValue.join("");
-        console.log("numOne is", numOne);
-        console.log("numTwo is", numTwo);
         displayValue = [`${operate(parseFloat(numOne), parseFloat(numTwo), operator)}`];
         document.getElementById("screen").innerText = displayValue.join("");
         numOne = displayValue[0];
         numTwo = "";
+        displayValue = [];
     }
-    numOne = displayValue.join("");
-    operator = 'divide';
-    displayValue = []; 
+});
+
+const buttonEquals = document.getElementById("btn=");
+buttonEquals.addEventListener("click", () => {
+   if (operator !== "") {
+        numTwo = displayValue.join("");
+        displayValue = [`${operate(parseFloat(numOne), parseFloat(numTwo), operator)}`];
+        document.getElementById("screen").innerText = displayValue.join("");
+        numOne = displayValue[0];
+        numTwo = "";
+        operator = "";
+    } 
+   numOne = displayValue.join("");
+   document.getElementById("screen").innerText = displayValue.join("");
+   operator = "";
 });
