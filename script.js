@@ -150,6 +150,7 @@ buttonAdd.addEventListener("click", () => {
         document.getElementById("screen").innerText = displayValue.join("");
         numOne = displayValue[0];
         numTwo = "";
+        displayValue = [];
         decimalPressed = false
     }
 });
@@ -265,5 +266,29 @@ buttonDecimal.addEventListener("click", () => {
         displayValue.push(".")
         document.getElementById("screen").innerText = displayValue.join("");
         decimalPressed = true;
+    }
+});
+
+addEventListener("keydown", (event) => {
+    const key = event.key;
+
+    if (key >= "0" && key <= "9") {
+        document.getElementById(`btn${key}`).click();
+    } else if (key === "+"){
+        document.getElementById("btn+").click();
+    } else if (key === "-"){
+        document.getElementById("btn-").click();
+    } else if (key === "/"){
+        document.getElementById("btn/").click();
+    } else if (key === "*"){
+        document.getElementById("btn*").click();
+    } else if (key === "=" || key === "Enter"){
+        document.getElementById("btn=").click();
+    } else if (key === "."){
+        document.getElementById("btnDec").click();
+    } else if (key === "Backspace"){
+        document.getElementById("btnBack").click();
+    } else if (key === "Escape"){
+        document.getElementById("btnAC").click();
     }
 });
