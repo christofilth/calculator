@@ -224,3 +224,12 @@ buttonEquals.addEventListener("click", () => {
    document.getElementById("screen").innerText = displayValue.join("");
    operator = "";
 });
+
+const buttonClear = document.getElementById("btnAC");
+buttonClear.addEventListener("click", () => {
+    numOne = "";
+    numTwo = "";
+    operator = "";
+    displayValue = ["0"];
+    document.getElementById("screen").innerText = displayValue.join("");
+});
