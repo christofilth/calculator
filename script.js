@@ -20,6 +20,7 @@ function divide(a, b){
 let numOne = "";
 let numTwo = "";
 let operator = "";
+let decimalPressed = false;
 
 function operate(numOne, numTwo, operator){
     switch (operator){
@@ -137,9 +138,11 @@ buttonAdd.addEventListener("click", () => {
         numOne = displayValue.join("");
         operator = 'add';
         displayValue = []; 
+        decimalPressed = false
     } else if (numOne !== "" && operator === ""){
         operator = 'add';
         displayValue = [];
+        decimalPressed = false
     } else {
         operator = 'add';
         numTwo = displayValue.join("");
@@ -147,7 +150,7 @@ buttonAdd.addEventListener("click", () => {
         document.getElementById("screen").innerText = displayValue.join("");
         numOne = displayValue[0];
         numTwo = "";
-        
+        decimalPressed = false
     }
 });
 
@@ -157,9 +160,11 @@ buttonSubtract.addEventListener("click", () => {
         numOne = displayValue.join("");
         operator = 'subtract';
         displayValue = []; 
+        decimalPressed = false
     } else if (numOne !== "" && operator === ""){
         operator = 'subtract';
         displayValue = [];
+        decimalPressed = false
     } else {
         operator = 'subtract';
         numTwo = displayValue.join("");
@@ -168,6 +173,7 @@ buttonSubtract.addEventListener("click", () => {
         numOne = displayValue[0];
         numTwo = "";
         displayValue = [];
+        decimalPressed = false
     }
 });
 
@@ -176,10 +182,12 @@ buttonMultiply.addEventListener("click", () => {
     if (numOne === "") {
         numOne = displayValue.join("");
         operator = 'multiply';
+        decimalPressed = false
         displayValue = []; 
     } else if (numOne !== "" && operator === ""){
         operator = 'multiply';
         displayValue = [];
+        decimalPressed = false
     } else {
         operator = 'multiply';
         numTwo = displayValue.join("");
@@ -188,6 +196,7 @@ buttonMultiply.addEventListener("click", () => {
         numOne = displayValue[0];
         numTwo = "";
         displayValue = [];
+        decimalPressed = false
     }
 });
 
@@ -197,9 +206,11 @@ buttonDivide.addEventListener("click", () => {
         numOne = displayValue.join("");
         operator = 'divide';
         displayValue = []; 
+        decimalPressed = false
     } else if (numOne !== "" && operator === ""){
         operator = 'divide';
         displayValue = [];
+        decimalPressed = false
     } else {
         operator = 'divide';
         numTwo = displayValue.join("");
@@ -208,6 +219,7 @@ buttonDivide.addEventListener("click", () => {
         numOne = displayValue[0];
         numTwo = "";
         displayValue = [];
+        decimalPressed = false
     }
 });
 
@@ -220,10 +232,12 @@ buttonEquals.addEventListener("click", () => {
         numOne = displayValue[0];
         numTwo = "";
         operator = "";
+        decimalPressed = false
     } 
    numOne = displayValue.join("");
    document.getElementById("screen").innerText = displayValue.join("");
    operator = "";
+   decimalPressed = false
 });
 
 const buttonClear = document.getElementById("btnAC");
@@ -232,6 +246,7 @@ buttonClear.addEventListener("click", () => {
     numTwo = "";
     operator = "";
     displayValue = ["0"];
+    decimalPressed = false;
     document.getElementById("screen").innerText = displayValue.join("");
 });
 
@@ -239,4 +254,16 @@ const buttonBackspace = document.getElementById("btnBack");
 buttonBackspace.addEventListener("click", () => {
     displayValue.pop()
     document.getElementById("screen").innerText = displayValue.join("");
+});
+
+const buttonDecimal = document.getElementById("btnDec");
+buttonDecimal.addEventListener("click", () => {
+    if (!decimalPressed) {
+        if (displayValue.length === 0) {
+            displayValue.push("0")
+        }
+        displayValue.push(".")
+        document.getElementById("screen").innerText = displayValue.join("");
+        decimalPressed = true;
+    }
 });
