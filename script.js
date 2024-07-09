@@ -228,12 +228,19 @@ const buttonEquals = document.getElementById("btn=");
 buttonEquals.addEventListener("click", () => {
    if (operator !== "") {
         numTwo = displayValue.join("");
+        if (numTwo === "") {
+            numTwo = numOne;
+        }
         displayValue = [`${operate(parseFloat(numOne), parseFloat(numTwo), operator)}`];
+        console.log(numOne);
+        console.log(numTwo);
+        console.log(operator);
         document.getElementById("screen").innerText = displayValue.join("");
         numOne = displayValue[0];
         numTwo = "";
         operator = "";
         decimalPressed = false
+        
     } 
    numOne = displayValue.join("");
    document.getElementById("screen").innerText = displayValue.join("");
