@@ -240,7 +240,6 @@ buttonEquals.addEventListener("click", () => {
         numTwo = "";
         operator = "";
         decimalPressed = false
-        
     } 
    numOne = displayValue.join("");
    document.getElementById("screen").innerText = displayValue.join("");
